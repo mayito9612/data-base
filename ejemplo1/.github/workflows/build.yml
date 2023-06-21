@@ -1,10 +1,9 @@
-#Nombre que recibe el pipeline
+# El nombre que recibe el pipeline
 name: Integracion Continua
 
-#Los pasos para ejecutar el pipeline
+# Los pasos para ejecutar el pipeline
 jobs:
   build-test:
-    #Se va a necesitar un contenedor, maquina virtual
     runs-on: ubuntu-latest
 
     steps:
@@ -18,10 +17,10 @@ jobs:
           distribution: "zulu"
 
       - name: Ejecutar las pruebas
-        run: ./gradlew test --no-deamon
+        run: ./gradlew test --no-daemon
 
-  #Ejecutar el pipeline en cada push sobre la rama "main"
+# Ejecutar el pipeline en cada push sobre la rama "master"
 on:
   push:
     branches:
-      - main
+      - master
